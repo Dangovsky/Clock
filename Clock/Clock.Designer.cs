@@ -46,11 +46,12 @@
             // 
             this.gComboBox.DataSource = this.GBindingSource;
             this.gComboBox.FormattingEnabled = true;
-            this.gComboBox.Location = new System.Drawing.Point(166, 32);
+            this.gComboBox.Location = new System.Drawing.Point(166, 41);
             this.gComboBox.Name = "gComboBox";
             this.gComboBox.Size = new System.Drawing.Size(121, 21);
             this.gComboBox.TabIndex = 0;
             this.gComboBox.SelectedIndexChanged += new System.EventHandler(this.gComboBox_SelectedIndexChanged);
+            this.gComboBox.SelectedValueChanged += new System.EventHandler(this.gComboBox_SelectedValueChanged);
             // 
             // GBindingSource
             // 
@@ -70,7 +71,7 @@
             // 
             this.typeComboBox.DataSource = this.TypesBindingSource;
             this.typeComboBox.FormattingEnabled = true;
-            this.typeComboBox.Location = new System.Drawing.Point(166, 72);
+            this.typeComboBox.Location = new System.Drawing.Point(166, 103);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(121, 21);
             this.typeComboBox.TabIndex = 2;
@@ -83,7 +84,7 @@
             // gLabel
             // 
             this.gLabel.AutoSize = true;
-            this.gLabel.Location = new System.Drawing.Point(166, 16);
+            this.gLabel.Location = new System.Drawing.Point(169, 16);
             this.gLabel.Name = "gLabel";
             this.gLabel.Size = new System.Drawing.Size(15, 13);
             this.gLabel.TabIndex = 3;
@@ -92,7 +93,7 @@
             // typeLabel
             // 
             this.typeLabel.AutoSize = true;
-            this.typeLabel.Location = new System.Drawing.Point(166, 56);
+            this.typeLabel.Location = new System.Drawing.Point(169, 77);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(31, 13);
             this.typeLabel.TabIndex = 4;

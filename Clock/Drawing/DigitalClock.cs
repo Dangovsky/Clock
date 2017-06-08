@@ -9,16 +9,20 @@ namespace Clock.Drawing
 {
     class DigitalClock: Drawer
     {
-        private Image image;
+        private Bitmap image;
 
-        public DigitalClock(Image image)
-        {
-            this.image = image;
+        public DigitalClock(int width, int height)
+        {            
+            image = new Bitmap(width, height);
         }
 
         public Image Draw(DateTime time)
         {
-            return null;
+            Graphics g = Graphics.FromImage(image);
+            g.Clear(Color.White);
+            g.DrawString(time.Hour + ":" + time.Minute + ":" + time.Second, new Font(FontFamily.GenericSansSerif, image.Width / 8), Brushes.Black,0, image.Height / 3);
+            g.Dispose();
+            return image;
         }
     }
 }

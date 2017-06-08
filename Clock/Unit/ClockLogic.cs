@@ -14,7 +14,8 @@ namespace Clock.Unit
         private Drawer drawer;
         private List<string> types;
         private List<string> g;
-        private Image image;
+        private int width;
+        private int height;
 
         public List<string> G { get { return g; } }
 
@@ -27,10 +28,10 @@ namespace Clock.Unit
                 switch (value)
                 {
                     case "Digital":
-                        drawer = new DigitalClock(image);
+                        drawer = new DigitalClock(width, height);
                         break;
                     case "Classic":
-                        drawer = new ClassicClock(image);
+                        drawer = new ClassicClock(width, height);
                         break;
                 }
             }
@@ -50,9 +51,10 @@ namespace Clock.Unit
             types = new List<string>();
         }
 
-        public ClockLogic(string clockType, string GCorrection, Image image)
+        public ClockLogic(string clockType, string GCorrection, int width, int height)
         {
-            this.image = image;
+            this.width = width;
+            this.height = height;
             types = new List<string> { "Digital", "Classic" };
             g = new List<string>();
             for (int i = -12; i < 13; i++)
@@ -62,19 +64,19 @@ namespace Clock.Unit
             switch (clockType)
             {
                 case "Digital":
-                    drawer = new DigitalClock(image);
+                    drawer = new DigitalClock(width, height);
                     break;
                 case "Classic":
-                    drawer = new ClassicClock(image);
+                    drawer = new ClassicClock(width, height);
                     break;
             }
-            this.gCorrection = Convert.ToInt16(gCorrection);
+            gCorrection = Convert.ToInt16(GCorrection);
         }
 
         public Image GetImage()
         {
             DateTime time = DateTime.Now;
-            time.AddHours(gCorrection);
+            time = time.AddHours(gCorrection);
             return drawer.Draw(time);
         }
     }

@@ -19,7 +19,7 @@ namespace Clock
         {
             logic = new ClockLogic();
             InitializeComponent();
-            logic = new ClockLogic((string)gComboBox.SelectedItem, (string)typeComboBox.SelectedItem, clockPictureBox.Image);
+            logic = new ClockLogic((string)gComboBox.SelectedItem, (string)typeComboBox.SelectedItem, clockPictureBox.Width, clockPictureBox.Height);
             GBindingSource.DataSource = logic.G;
             TypesBindingSource.DataSource = logic.Types;
         }
@@ -40,6 +40,11 @@ namespace Clock
         }
 
         private void gComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            logic.GCorrection = (string)gComboBox.SelectedItem;
+        }
+
+        private void gComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             logic.GCorrection = (string)gComboBox.SelectedItem;
         }
